@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+
+canvas {
+    border: 1px solid #000;
+    display: block;
+    margin: 20px auto;
+}
+
+input[type="file"], input[type="text"], button {
+    margin: 10px;
+}
+
+#controls {
+    margin-top: 20px;
+}
