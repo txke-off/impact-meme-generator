@@ -25,7 +25,7 @@ uploadImage.addEventListener("change", e => {
     }
 });
 
-const wrapTopText = (text, x, startY, maxWidth, lineHeight) => {
+const wrapTopText = (text, x, topY, maxWidth, lineHeight) => {
     const words = text.split(" ");
     let line = "";
     let lines = [];
@@ -43,7 +43,7 @@ const wrapTopText = (text, x, startY, maxWidth, lineHeight) => {
     lines.push(line);
 
     lines.forEach((line, index) => {
-        const y = startY + lineHeight * (index + 1);
+        const y = topY + lineHeight * index;
         ctx.fillText(line.trim(), x, y);
         ctx.strokeText(line.trim(), x, y);
     });
@@ -82,16 +82,18 @@ const drawMeme = () => {
     ctx.textAlign = "center";
     ctx.font = `${fontSize}px Impact`;
 
+    ctx.textBaseline = "top";
     if (topText.value) {
         wrapTopText(
           topText.value.toUpperCase(),
           canvas.width / 2,
-          0,
+          20,
           canvas.width - 20,
           fontSize + 10
         );
     }
     
+    ctx.textBaseline = "alphabetic";
     if (bottomText.value) {
         wrapBottomText(
             bottomText.value.toUpperCase(),
