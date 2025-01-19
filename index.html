@@ -10,6 +10,10 @@
   <body>
     <h1>Meme Generator</h1>
     <input type="file" id="upload-image" accept="image/*">
+    <div>
+      <label for="font-size-slider">Font Size:</label>
+      <input id="font-size-slider" type="range" min="20" max="100" value="50" />
+    </div>
     <canvas id="meme-canvas" width="500" height="500"></canvas>
     <div id="controls">
       <input type="text" id="top-text" placeholder="Top Text">
