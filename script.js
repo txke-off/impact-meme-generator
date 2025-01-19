@@ -56,16 +56,18 @@ const drawMeme = () => {
 image.onload = () => {
     let width = image.width;
     let height = image.height;
+    
+    if (width < minw || height < minh) {
+        const scale = Math.max(minw / width, minh / height);
+        width = Math.round(width * scale);
+        height = Math.round(height * scale);
+    }
     if (width > maxw || height > maxh) {
         const scale = Math.min(maxw / width, maxh / height);
         width = Math.round(width * scale);
         height = Math.round(height * scale);
     }
-    if (width < minw || height < minh) {
-        const scale = Math.max(minw / width, minh / height);
-        width = Math.round(width * scale);
-        height = Math.round(height * scale);
-      }
+    
     canvas.width = width;
     canvas.height = height;
     drawMeme();
