@@ -57,7 +57,7 @@ image.onload = () => {
     let width = image.width;
     let height = image.height;
     if (width > maxw || height > maxh) {
-        const scale = Math.max(maxw / width, maxh / height);
+        const scale = Math.min(maxw / width, maxh / height);
         width = Math.round(width * scale);
         height = Math.round(height * scale);
     }
